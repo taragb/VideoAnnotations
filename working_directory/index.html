@@ -1,0 +1,214 @@
+
+<html>
+<head>
+	<title>Teach Aids</title>
+
+	 <!--Video.js 'HTML5 Shiv' in Head-->
+	<script type="text/javascript">
+	  document.createElement('video');document.createElement('audio');
+	</script>
+
+</head>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://jaysalvat.github.io/buzz/releases/latest/buzz.min.js"></script>
+	<!--Include 'Video.js' in project, CDN Hosted Version-->
+<link href="//vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
+<!--script src="//vjs.zencdn.net/4.2/video.js"></script-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>  
+<script>/*
+  swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1&playerapiid=player",
+    "player", "425", "356", "8", null, null, 
+    {allowScriptAccess: "always"}, {id: 'player'}
+  );
+
+  var player = null;
+
+   window.onYouTubePlayerReady = function(playerId) {
+    player = document.getElementById(playerId);
+    player.addEventListener('onStateChange', 'playerStateChanged');
+  }
+
+  function hidePlayer() {
+    player.pauseVideo();
+  }
+  function showPlayer() {
+    player.playVideo();
+  }
+
+	
+/*
+ 	
+ 	var mySound ;
+  	$("#play").toggle();
+  	var stopped=[];
+
+	$('#video-button').click(function(){
+
+		video_url = $('#video').val();
+ 		mySound = new buzz.sound(video_url);
+ 		mySound.load();
+ 		$("#video-button").text('Loading....');
+ 		mySound.bind("loadeddata", function() {
+  			$("#play").toggle();
+  			 $("#video-button").text('Loaded');
+		});
+		
+		mySound.bind("ended", function(e) {
+			$("#playb").text('play');
+			mySound.unloop();
+			stopped=[];
+		});	
+
+		mySound.bind("loadstart", function(e) {
+				$('#output').val('');
+				stopped=[];
+		});
+
+					/*Load Video Dynamically
+		var videoPlayer = videojs("teachaidsVideo");
+		$videoPlayer.ready(function() {
+			$(".vjs-big-play-button").show();
+			$videoPlayer.attr("src", "http://video-js.zencoder.com/oceans-clip.mp4");
+			$videoPlayer.load();
+		});
+
+		/*videojs("teachaidsVideo", {"controls": true, "autoplay": true}, function(){
+	      // Player (this) is initialized and ready.
+	    });
+	});
+
+
+	// $( "#playb" ).click(function() {
+	// 	mySound.togglePlay();
+
+	// });
+
+	$( "#ended" ).click(function() {
+		mySound.stop();
+		$('#output').val('');
+
+		stopped=[];
+	});
+
+
+	$("#playb").click(function() {
+		
+		if (!mySound.isPaused())
+		{
+		 	$("#playb").text('play');
+
+			stopped_time = mySound.getTime();
+			stopped.push(stopped_time);
+			$('#output').val(stopped.toString());
+		}
+		else
+		{
+			$("#playb").text('pause');
+
+		}
+		mySound.togglePlay();
+
+	});
+*/
+
+
+</script>
+
+
+<style type="text/css">
+body 
+{background-color:#D9D9D9;}
+#content
+{
+	margin-top:3%;
+	margin-left:3%;
+}
+.pure-input-1-2
+{
+	height:3.5em;
+}
+
+#play
+{
+	margin-top:1em;
+	width: 600px;
+
+}
+#output {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-color: #EBEBEB;
+    height:5em;
+    width: 450px;
+    margin-top: 2em;
+}
+.pure-button-secondary {
+            background: rgb(28, 184, 65); /* this is a green */
+
+        }
+
+</style>
+  
+<body >
+<div id="content">
+	<video id="vid3" src="" class="video-js vjs-default-skin" ytcontrols preload="auto" width="700" height="500"></video>
+
+	<form class="pure-form">
+	  <input  class="pure-input-1-2" id="video" type="text" placeholder="Video" />&nbsp;&nbsp;<a id='video-button' class="pure-button pure-button-primary" href="#">Load</a>
+	</form>
+
+	<div id="play">
+		<div class="pure-g">
+			<div class="pure-u-1-3">
+					<a id='playb' class="pure-button pure-button-secondary" href="#">play</a>
+			</div>
+
+			<div class='pure-u-1-3'>
+				<a id='ended'class="pure-button pure-button-secondary" href="#">stop</a>
+			</div>
+		</div>
+		<textarea id="output">
+		</textarea>
+	</div>
+</div>
+<br />
+
+<!--Video Tag-->
+<!--video id="teachaidsVideo" class="video-js vjs-default-skin vjs-big-play-button" 
+	<source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4'		
+      controls preload="auto" width="680" height="264" video loop data-setup="{}"> </video--> <!-- 
+      poster="http://video-js.zencoder.com/oceans-clip.png" >  data-setup='{"example_option":true}'
+     <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />  -->  
+<!-- </video> -->
+  <script src="./video.js"></script>
+  <script src="./vjs.youtube.js"></script>
+  <script>
+  //var videoSource = $('#video').val();
+
+  k = videojs('vid3', { "techOrder": ["youtube"], "src": "http://www.youtube.com/watch?v=xjS6SftYQaQ" , "width":680, "height":500}).ready(function() {
+    // Detect when the YouTube API is ready
+    this.pause();
+this.play();
+
+     $("body").css("background-color","blue");
+
+    this.on('apiready', function() {
+      $("body").css("background-color","red");
+
+      console.log('YouTube API is ready!');
+      console.log(this);
+    });
+
+    // Cue a video using ended event
+    this.on('ended', function() {
+      this.src('http://www.youtube.com/watch?v=6h-sZkglI8Y');
+    });
+  });
+
+  </script>
+</body>
+
+</html>
